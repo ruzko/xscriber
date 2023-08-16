@@ -3,6 +3,8 @@
 Uses [whisper]() and openAI's [gpt-3.5-turbo-16k]() Model to summarize recordings of zoom calls, teams calls or any other online meeting 
 where you can record the meeting as audio.
 
+![Screenshot of XScriber](static/xscriber-screenshot.png)
+
 # How does it work?
 
 You may upload a recording (m4a, wav, mp3, etc.) (**Note well: Audio only!**) via the web interface.

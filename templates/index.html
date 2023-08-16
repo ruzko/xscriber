@@ -25,12 +25,16 @@
 <div class="columns">
     <div class="column" size="is-one-fith">
     </div>
-    <div class="column" size="is-two-thirds">
-    <section class="section">
-        <div class="container">
+    <div class="column" size="is-four-fiths">
+    <div class="container">
+        <section class="section">
             <h1 class="title">
-                XScriber: Upload Audio, get your meeting minutes
+                <a href="https://github.com/aaronkaplan/xscriber">XScriber</a>
             </h1>
+            <h2>
+                Upload Video call recording audio, get your AI summarized meeting minutes, action points etc.
+            </h2>
+            <p/><hr><p/>
             {% if error_message %}
             <div class="notification is-danger">
                 {{ error_message }}
@@ -45,7 +49,7 @@
             <p/>
             <p>&nbsp;</p>
             <form action="/upload/" method="post" enctype="multipart/form-data">
-                <div class="file has-name is-boxed">
+                <div class="file has-name is-boxed centered">
                     <label class="file-label">
                         <input class="file-input" type="file" name="file">
                         <span class="file-cta">
@@ -62,7 +66,6 @@
                     </label>
                 </div>
                 <div><hr/></div>
-                <div>&nbsp;</div>
                 <div class="control">
                     <button class="button is-primary">Upload</button>
                 </div>
@@ -71,22 +74,19 @@
             {% endif %}
             &nbsp;
         </div>
-        <div>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-            <p>&nbsp;</p>
-        </div>
-        <div class="notification">
-            <font size=-1>
-            Copyright 2023 (C) by Aaron Kaplan. All rights reserved. <a href="mailto:kaplan@lo-res.org">E-mail</a>. <p/>
-            <p class="font-size-8">Made with <font color="red">❤ </font>in Vienna</p></font>
-            </font>
-        </div> 
-    </section>
     </div>
-    <div class="column" size="is-one-fith">
+    </section>
+    <div class="column">
     </div>
 </div>
+<footer class="footer">
+    <div class="content has-text-centered">
+        <font size=-1>
+        Copyright 2023 (C) by Aaron Kaplan. All rights reserved. <a href="mailto:kaplan@lo-res.org">E-mail</a>. <p/>
+        <p class="font-size-8">Made with <font color="red">❤ </font>in Vienna</p></font>
+        </font>
+    </div> 
+</footer>
 <script>
     const fileInput = document.querySelector('.file-input')
     const fileLabel = document.querySelector('.file-label')
