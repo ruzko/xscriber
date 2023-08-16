@@ -15,7 +15,7 @@ RUN apt update && apt install -y ffmpeg
 
 # copy the main files
 COPY . .
-COPY .env .
+# COPY .env .
 
 
 # expose the port for the FastAPI application
