@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        /* Spinner styles */
+        .spinner {
+            border: 8px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 8px solid #3498db;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            display: none; /* Initially hidden */
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+<div class="columns">
+    <div class="column" size="is-one-fith">
+    </div>
+    <div class="column" size="is-two-thirds">
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                XScriber: Upload Audio, get your meeting minutes
+            </h1>
+            {% if error_message %}
+            <div class="notification is-danger">
+                {{ error_message }}
+            </div>
+            {% else %}
+            <p>I can transcribe and make meeting minutes for you from zoom recordings, Team recordings, etc.<br/>
+            </p>
+            <p>
+            You may upload up to 125MB of meeting recordings
+            </p>
+            Supported formats: <i>m4a, mp3, webm, mp4, mpga, wav, mpeg, ogg, oga, flac.</i><p/>
+            <p/>
+            <p>&nbsp;</p>
+            <form action="/upload/" method="post" enctype="multipart/form-data">
+                <div class="file has-name is-boxed">
+                    <label class="file-label">
+                        <input class="file-input" type="file" name="file">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Choose an audio file…
+                            </span>
+                        </span>
+                        <span class="file-name">
+                            No file uploaded
+                        </span>
+                    </label>
+                </div>
+                <div><hr/></div>
+                <div>&nbsp;</div>
+                <div class="control">
+                    <button class="button is-primary">Upload</button>
+                </div>
+            </form>
+            <div class="spinner" id="spinner"></div>
+            {% endif %}
+            &nbsp;
+        </div>
+        <div>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </div>
+        <div class="notification">
+            <font size=-1>
+            Copyright 2023 (C) by Aaron Kaplan. All rights reserved. <a href="mailto:kaplan@lo-res.org">E-mail</a>. <p/>
+            <p class="font-size-8">Made with <font color="red">❤ </font>in Vienna</p></font>
+            </font>
+        </div> 
+    </section>
+    </div>
+    <div class="column" size="is-one-fith">
+    </div>
+</div>
+<script>
+    const fileInput = document.querySelector('.file-input')
+    const fileLabel = document.querySelector('.file-label')
+    const fileName = document.querySelector('.file-name')
+    const uploadForm = document.getElementById('uploadForm');
+    const spinner = document.getElementById('spinner');
+
+    fileInput.addEventListener('change', (e) => {
+        let name = e.target.value.split('\\').pop()
+        fileName.textContent = name
+    });
+
+    uploadForm.addEventListener('submit', (e) => {
+        spinner.style.display = 'block'; // Show spinner on form submission
+    });
+</script>
+</body>
+</html>
+

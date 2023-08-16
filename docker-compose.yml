@@ -1,0 +1,16 @@
+version: "3"
+services:
+  # The main microservice, serving the OpenAI based meeting minutes xscriber
+  #
+  xscriber:
+    image: xscriber:0.1
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      PYTHON_PATH: /app
+    env_file: .env
+    ports:
+      - "9977:9977"
+    dns: 8.8.8.8
+    network_mode: host
