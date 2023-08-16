@@ -1,6 +1,6 @@
 # XScriber
 
-Uses [whisper]() and openAI's [gpt-3.5-turbo-16k]() Model to summarize recordings of zoom calls, teams calls or any other online meeting 
+Uses [whisper](https://github.com/openai/whisper) and openAI's [gpt-3.5-turbo-16k](https://platform.openai.com/docs/models/gpt-3-5) Model to summarize recordings of zoom calls, teams calls or any other online meeting 
 where you can record the meeting as audio.
 
 ![Screenshot of XScriber](static/xscriber-screenshot.png)
@@ -17,7 +17,7 @@ Finally, you will be presented a structured text (JSON) of:
   * the general sentiment of the meeting.
 
 Of course, it's also possible to convert the resulting text into other formats (.docx MS Word file or similar).
-If you have some wishes how the tool should work, please create an [issue]() and mark it as a feature request.
+If you have some wishes how the tool should work, please create an [issue](https://github.com/aaronkaplan/xscriber/issues) and mark it as a feature request.
 
 # Can I run the transcription and the summarization locally?
 
@@ -43,7 +43,7 @@ I need help with:
 - sample recordings and output text for end-to-end tests
 - a better API which supports a HTTP GET parameter `?outputformat={docx,pdf,...}`
 - interfacing local whisper installations
-- interfacing local LLMs ([StableBeluga-2]() seems currently like a good option)
+- interfacing local LLMs ([StableBeluga-2](https://huggingface.co/stabilityai/StableBeluga2) seems currently like a good option)
 
 
 A detailed description on how to contribute is [here](CONTRIBUTING.md).
@@ -57,14 +57,16 @@ Remember, this is a proof of concept right now.
 If you want to run this service yourself, you can either do so via docker:
 
 ```bash
-
+make
+# which basically does a docker compose  --env-file .env up -d
 ```
 
-or via command line directly:
+or via command line directly (without docker):
 
 ```bash
 virtualenv --python=python3.11 venv
 source venv/bin/activate
+# copy & modify .env: cp env.dist .env
 source .env
 uvicorn app.main:app --host 0.0.0.0 --port 9977 --reload
 ```
