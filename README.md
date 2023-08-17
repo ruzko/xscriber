@@ -3,9 +3,19 @@
 Uses [whisper](https://github.com/openai/whisper) and openAI's [gpt-3.5-turbo-16k](https://platform.openai.com/docs/models/gpt-3-5) Model to summarize recordings of zoom calls, teams calls or any other online meeting 
 where you can record the meeting as audio.
 
+## Demo
+
+**[DEMO](examples/README.md) here**
+
+
+## User interface
+
 ![Screenshot of XScriber](static/xscriber-screenshot.png)
 
-# How does it work?
+
+# FAQ
+
+## How does it work?
 
 You may upload a recording (m4a, wav, mp3, etc.) (**Note well: Audio only!**) via the web interface.
 Then you need to wait (can take up to a few minutes).
@@ -19,11 +29,11 @@ Finally, you will be presented a structured text (JSON) of:
 Of course, it's also possible to convert the resulting text into other formats (.docx MS Word file or similar).
 If you have some wishes how the tool should work, please create an [issue](https://github.com/aaronkaplan/xscriber/issues) and mark it as a feature request.
 
-# Can I run the transcription and the summarization locally?
+## Can I run the transcription and the summarization locally?
 
 Yes, you could. This is on my personal wishlist.
 
-# Why is it so slow?
+## Why is it so slow?
 
 The audio files need to be first split up at the right spot so that no context of the meeting is lost.
 Then it needs to be sent to whisper for transcription, each part that is.
@@ -31,7 +41,7 @@ Then the transcript is sent to OpenAI.
 
 We hope to speed up processing eventually, right now we are limited by the speed of OpenAI.
 
-# How can I help?
+## How can I help?
 
 I need help with:
 
