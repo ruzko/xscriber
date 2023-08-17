@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" rel="stylesheet"/>
+<style>
         /* Spinner styles */
         .spinner {
             border: 8px solid #f3f3f3;
@@ -25,74 +26,111 @@
 </head>
 <body>
 <div class="columns">
-    <div class="column"> 
-    </div>
-    <div class="column is-8">
-        <div class="container">
-            <section class="section">
-                <h1 class="title">
-                    <a href="https://github.com/aaronkaplan/xscriber">XScriber</a>
-                </h1>
-                <h2>
+<div class="column">
+</div>
+<div class="column is-8">
+<div class="container">
+<section class="section">
+<h1 class="title">
+<a href="https://github.com/aaronkaplan/xscriber">XScriber</a>
+</h1>
+<h2>
                     Upload Video call recording audio, get your AI summarized meeting minutes, action points etc.
                 </h2>
-                <p/><hr><p/>
+<p></p><hr/><p></p>
                 {% if error_message %}
                 <div class="notification is-danger">
                     {{ error_message }}
                 </div>
                 {% else %}
                 <p>I can transcribe and make meeting minutes for you from zoom recordings, Team recordings, etc.<br/>
-                </p>
-                <p>
+</p>
+<p>
                 You may upload up to 125MB of meeting recordings
                 </p>
-                Supported formats: <i>m4a, mp3, webm, mp4, mpga, wav, mpeg, ogg, oga, flac.</i><p/>
-                <p/>
-                <b>Please be patient after pressing Upload</b>. It might take a few <b>minutes.</b>
-                <p/>
-            </section>
-            <section class="section has-text-centered">
-                <div class="container">
-                    <form action="/upload/" method="post" enctype="multipart/form-data">
-                        <div class="file has-name is-boxed is-centered">
-                            <label class="file-label">
-                                <input class="file-input" type="file" name="file">
-                                <span class="file-cta">
-                                    <span class="file-icon">
-                                        <i class="fas fa-upload"></i>
-                                    </span>
-                                    <span class="file-label">
+                Supported formats: <i>m4a, mp3, webm, mp4, mpga, wav, mpeg, ogg, oga, flac.</i><p></p>
+<p></p>
+<b>Please be patient after pressing Upload</b>. It might take a few <b>minutes.</b>
+<p></p>
+</section>
+<section class="section has-text-centered">
+<div class="container">
+<div class="spinner"></div><form action="/upload/" enctype="multipart/form-data" method="post">
+<div class="file has-name is-boxed is-centered">
+<label class="file-label">
+<input class="file-input" name="file" type="file"/>
+<span class="file-cta">
+<span class="file-icon">
+<i class="fas fa-upload"></i>
+</span>
+<span class="file-label">
                                         Choose an audio file…
                                     </span>
-                                </span>
-                                <span class="file-name">
+</span>
+<span class="file-name">
                                     No file uploaded
                                 </span>
-                            </label>
-                        </div>
-                        <div><hr/></div>
-                        <div class="control">
-                            <button class="button is-primary">Get meeting minutes</button>
-                        </div>
-                    </form>
-                </div>
-                <div class="spinner" id="spinner"></div>
+</label>
+</div>
+<div><hr/></div>
+<div class="control">
+<button class="button is-primary">Upload</button>
+</div>
+</form>
+</div>
+<div class="spinner" id="spinner"></div>
                 {% endif %}
             </section>
-        </div> <!-- container -->
-    </div>  <!-- column -->
-    <div class="column">
-    </div>
+</div> <!-- container -->
+</div> <!-- column -->
+<div class="column">
+</div>
 </div> <!-- columns -->
 <footer class="footer">
-    <div class="content has-text-centered">
-        <font size=-1>
-        Copyright 2023 (C) by Aaron Kaplan. All rights reserved. <a href="mailto:kaplan@lo-res.org">E-mail</a>. <p/>
-        <p class="font-size-8">Made with <font color="red">❤ </font>in Vienna</p></font>
-        </font>
-    </div> 
-</footer>
+<div class="content has-text-centered">
+<font size="-1">
+        Copyright 2023 (C) by Aaron Kaplan. All rights reserved. <a href="mailto:kaplan@lo-res.org">E-mail</a>. <p></p>
+<p class="font-size-8">Made with <font color="red">❤ </font>in Vienna</p></font>
+</div></footer>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const form = document.querySelector("form");
+    const spinner = document.querySelector(".spinner");
+    
+    if (form && spinner) {
+        form.addEventListener("submit", function(e) {
+            // Show spinner on form submit
+            spinner.style.display = "block";
+            
+            // If you're using the Fetch API for AJAX form submission, 
+            // you can hide the spinner when the request completes like this:
+            /*
+            e.preventDefault();
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle your response data here
+                
+                // Hide spinner
+                spinner.style.display = "none";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                
+                // Hide spinner in case of error
+                spinner.style.display = "none";
+            });
+            */
+        });
+    }
+});
+</script>
+</body></html>
+
+
 <script>
     const fileInput = document.querySelector('.file-input')
     const fileLabel = document.querySelector('.file-label')
@@ -109,6 +147,5 @@
         spinner.style.display = 'block'; // Show spinner on form submission
     });
 </script>
-</body>
-</html>
+
 
