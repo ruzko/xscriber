@@ -26,59 +26,63 @@
     <div class="column" size="is-one-fith">
     </div>
     <div class="column" size="is-four-fiths">
-    <div class="container">
-        <section class="section">
-            <h1 class="title">
-                <a href="https://github.com/aaronkaplan/xscriber">XScriber</a>
-            </h1>
-            <h2>
-                Upload Video call recording audio, get your AI summarized meeting minutes, action points etc.
-            </h2>
-            <p/><hr><p/>
-            {% if error_message %}
-            <div class="notification is-danger">
-                {{ error_message }}
-            </div>
-            {% else %}
-            <p>I can transcribe and make meeting minutes for you from zoom recordings, Team recordings, etc.<br/>
-            </p>
-            <p>
-            You may upload up to 125MB of meeting recordings
-            </p>
-            Supported formats: <i>m4a, mp3, webm, mp4, mpga, wav, mpeg, ogg, oga, flac.</i><p/>
-            <p/>
-            <p>&nbsp;</p>
-            <form action="/upload/" method="post" enctype="multipart/form-data">
-                <div class="file has-name is-boxed centered">
-                    <label class="file-label">
-                        <input class="file-input" type="file" name="file">
-                        <span class="file-cta">
-                            <span class="file-icon">
-                                <i class="fas fa-upload"></i>
-                            </span>
-                            <span class="file-label">
-                                Choose an audio file…
-                            </span>
-                        </span>
-                        <span class="file-name">
-                            No file uploaded
-                        </span>
-                    </label>
+        <div class="container">
+            <section class="section">
+                <h1 class="title">
+                    <a href="https://github.com/aaronkaplan/xscriber">XScriber</a>
+                </h1>
+                <h2>
+                    Upload Video call recording audio, get your AI summarized meeting minutes, action points etc.
+                </h2>
+                <p/><hr><p/>
+                {% if error_message %}
+                <div class="notification is-danger">
+                    {{ error_message }}
                 </div>
-                <div><hr/></div>
-                <div class="control">
-                    <button class="button is-primary">Upload</button>
+                {% else %}
+                <p>I can transcribe and make meeting minutes for you from zoom recordings, Team recordings, etc.<br/>
+                </p>
+                <p>
+                You may upload up to 125MB of meeting recordings
+                </p>
+                Supported formats: <i>m4a, mp3, webm, mp4, mpga, wav, mpeg, ogg, oga, flac.</i><p/>
+            </section>
+            <section class="section">
+                <b>Please be patient after pressing Upload.</b>
+            </section>
+            <section class="section">
+                <div class="container">
+                    <form action="/upload/" method="post" enctype="multipart/form-data">
+                        <div class="file has-name is-boxed centered">
+                            <label class="file-label">
+                                <input class="file-input" type="file" name="file">
+                                <span class="file-cta">
+                                    <span class="file-icon">
+                                        <i class="fas fa-upload"></i>
+                                    </span>
+                                    <span class="file-label">
+                                        Choose an audio file…
+                                    </span>
+                                </span>
+                                <span class="file-name">
+                                    No file uploaded
+                                </span>
+                            </label>
+                        </div>
+                        <div><hr/></div>
+                        <div class="control">
+                            <button class="button is-primary">Upload</button>
+                        </div>
+                    </form>
                 </div>
-            </form>
-            <div class="spinner" id="spinner"></div>
-            {% endif %}
-            &nbsp;
-        </div>
-    </div>
-    </section>
+                <div class="spinner" id="spinner"></div>
+                {% endif %}
+            </section>
+        </div> <!-- container -->
+    </div>  <!-- column -->
     <div class="column">
     </div>
-</div>
+</div> <!-- columns -->
 <footer class="footer">
     <div class="content has-text-centered">
         <font size=-1>

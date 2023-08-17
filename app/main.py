@@ -19,6 +19,7 @@ templates = Jinja2Templates(directory="templates")
 
 
 MODEL="gpt-3.5-turbo-16k"
+# MODEL="gpt-4-32k"         # in case you already have access to it
 
 AUDIO_EXTENSIONS = ["mp3", "wav", "flac", "m4a"]
 MAX_FILE_SIZE = 125 * 1024 * 1024  # 125 MB
