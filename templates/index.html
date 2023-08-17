@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <style>
         /* Spinner styles */
@@ -23,9 +25,9 @@
 </head>
 <body>
 <div class="columns">
-    <div class="column" size="is-one-fith">
+    <div class="column"> 
     </div>
-    <div class="column" size="is-four-fiths">
+    <div class="column is-8">
         <div class="container">
             <section class="section">
                 <h1 class="title">
@@ -46,14 +48,14 @@
                 You may upload up to 125MB of meeting recordings
                 </p>
                 Supported formats: <i>m4a, mp3, webm, mp4, mpga, wav, mpeg, ogg, oga, flac.</i><p/>
+                <p/>
+                <b>Please be patient after pressing Upload</b>. It might take a few <b>minutes.</b>
+                <p/>
             </section>
-            <section class="section">
-                <b>Please be patient after pressing Upload.</b>
-            </section>
-            <section class="section">
+            <section class="section has-text-centered">
                 <div class="container">
                     <form action="/upload/" method="post" enctype="multipart/form-data">
-                        <div class="file has-name is-boxed centered">
+                        <div class="file has-name is-boxed is-centered">
                             <label class="file-label">
                                 <input class="file-input" type="file" name="file">
                                 <span class="file-cta">
